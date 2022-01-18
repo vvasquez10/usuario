@@ -19,16 +19,24 @@ class Usuario:
         else:
             self.balance -= amount 
             print("Retiro realizado correctamente.")
+        return self
 
     def hacer_deposito(self, amount):
         self.balance += amount 
         print("Deposito realizado correctamente.")
+        return self
+
 
     def mostrar_balance_usuario(self):
         print("Usuario:", self.nombre, self.apellido, "- Balance:", self.balance)
-    
+        return self
+
+
     def transfer_dinero(self, other_user, amount):
         if self.balance < amount:
             print("No cuenta con el saldo suficiente para realizar la operación.")
         else:
             other_user.balance += amount
+            self.balance -=amount
+        return self
+
